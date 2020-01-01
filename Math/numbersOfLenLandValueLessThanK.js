@@ -1,0 +1,3 @@
+function numbersOfLenLandValueLessThanK(A) {
+    
+}
