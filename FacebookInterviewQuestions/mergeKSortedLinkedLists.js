@@ -1,13 +1,19 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+
 class PriorityQueue {
   constructor(compareFn) {
     this.heap = [];
-    if (compareFn) {
-      console.log("compareFn");
-      this.compareFn = compareFn;
-    } else {
-      // ascending order by default
-      this.compareFn = (a, b) => b - a;
-    }
+    this.compareFn = compareFn;
   }
   isEmpty() {
     return this.size() === 0;
@@ -106,44 +112,32 @@ class PriorityQueue {
   }
 }
 
-// const queue = new PriorityQueue((a, b) => {
-//   //   console.log(`${a} ${b}`);
-//   if (a < b) {
-//     return -1;
-//   } else if (a > b) {
-//     return 1;
-//   } else {
-//     return 0;
-//   }
-// });
-const queue = new PriorityQueue();
-let arr = [4, 3, 7, 1, 5, 0];
-for (const n of arr) {
-  queue.add(n);
-}
-console.log(queue.heap);
-while (queue.size() > 0) {
-  console.log(queue.remove());
-}
+var mergeKLists = function(lists) {
+  queue = new PriorityQueue((a, b) => {
+    if (a.val < b.val) {
+      return 1;
+    } else if (a.val > b.val) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  for (const list of lists) {
+    if (list !== null) {
+      queue.add(list);
+    }
+  }
+  let dummyHead = new ListNode(0);
+  let p = dummyHead;
 
-/*
-We have k sorted Linked Lists, k is 3 in this case
-    1 -> 3 -> 5
-    1 -> 2 -> 4
-    4 -> 5 -> 6
+  while (queue.size() > 0) {
+    const node = queue.remove();
+    p.next = node;
+    p = p.next;
 
-    Obviously our merged result would be
-    1->1->2->3->4->4->5->5->6
-
-    say we have a function mergeTwoLists(l1,l2)
-        if we merge the first two lists giving us
-            1->1->2->3->4->5
-        then merging the result with our last list giving us
-            1->1->2->3->4->4->5->5->6
-
-
-    WHAT IS THE TIME COMPLEXITY
-    
-    
-
-*/
+    if (node.next !== null) {
+      queue.add(node.next);
+    }
+  }
+  return dummyHead.next;
+};
