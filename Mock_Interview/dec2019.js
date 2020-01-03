@@ -25,15 +25,12 @@ function clear(i, j, n, m, grid, set) {
     j < 0 ||
     i >= n ||
     j >= m ||
-    set.has(`${i},${j}`)
-    // grid[i][j] === 0
+    set.has(`${i},${j}`) ||
+    grid[i][j] === 0
   ) {
     return;
   }
-  console.log(`${i},${j}`);
-  //   grid[i][j] = 0;
   set.add(`${i},${j}`);
-  //   console.log(set);
   clear(i + 1, j, n, m, grid, set);
   clear(i - 1, j, n, m, grid, set);
   clear(i, j + 1, n, m, grid, set);
@@ -49,7 +46,7 @@ function numberOfIslands(grid) {
 
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
-      if (grid[i][j] === 1) {
+      if (grid[i][j] === 1 && !set.has(`${i},${j}`)) {
         count++;
         clear(i, j, n, m, grid, set);
       }
