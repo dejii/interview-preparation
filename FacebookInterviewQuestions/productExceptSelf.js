@@ -1,4 +1,4 @@
-var productExceptSelf2 = function(nums) {
+var productExceptSelf = function(nums) {
   const n = nums.length;
   let p = 1;
   let q = 1;
