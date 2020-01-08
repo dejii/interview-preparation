@@ -28,7 +28,7 @@ function overlap(meeting1, meeting2) {
 }
 
 function canAttendMeetings(meetings) {
-  meetings.sort((a, b) => a - b);
+  meetings.sort((a, b) => a[0] - b[0]);
 
   let n = meetings.length;
   for (let i = 0; i < n - 1; i++) {
