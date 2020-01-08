@@ -57,3 +57,13 @@ node.right.left.left = new Node(16);
 node.right.right.right = new Node(27);
 
 console.log(inOrderSuccessor(node, 6));
+
+/*
+            15
+          /    \
+        10      20
+        / \    /   \
+      8    12   17   25
+    /  
+    6     
+*/
