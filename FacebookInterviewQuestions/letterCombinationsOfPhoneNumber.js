@@ -31,7 +31,7 @@ function letterCombinationsIterative(digits) {
   return ans;
 }
 
-console.log(letterCombinationsIterative("234"));
+console.log(letterCombinationsIterative("79"));
 
 function letterCombinationsRecursive(res, digits, current, index, mapping) {
   if (index === digits.length) {

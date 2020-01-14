@@ -1,3 +1,37 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+  let t = s
+    .split("")
+    .reverse()
+    .join("");
+
+  let dp = [];
+  for (let i = 0; i <= s.length; i++) {
+    let arr = [];
+    for (let j = 0; j <= s.length; j++) {
+      arr.push(0);
+    }
+    dp.push(arr);
+  }
+
+  for (let i = 0; i <= s.length; i++) {
+    for (let j = 0; j <= s.length; j++) {
+      if (i === 0 || j === 0) {
+        dp[i][j] = 0;
+      } else if (s[i - 1] === t[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+  }
+  return dp[s.length][s.length];
+};
+console.log(longestPalindrome("aacdefcaa"));
+
 /** #include <bits/stdc++.h> 
 using namespace std; 
   

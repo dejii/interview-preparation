@@ -78,7 +78,59 @@ node.right.left = new Node(15);
 node.right.right = new Node(7);
 
 console.log(verticalOrderTraversal(node));
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var verticalOrder = function(root) {
+  if (root === null) {
+    return [];
+  }
+  let map = new Map();
+  let queue = [];
 
+  queue.push(root);
+  root.hd = 0;
+  while (queue.length > 0) {
+    let node = queue.shift();
+    if (!map.has(node.hd)) {
+      map.set(node.hd, []);
+    }
+    let temp = map.get(node.hd);
+    temp.push(node.val);
+    map.set(node.hd, temp);
+
+    if (node.left !== null) {
+      node.left.hd = node.hd - 1;
+      queue.push(node.left);
+    }
+
+    if (node.right !== null) {
+      node.right.hd = node.hd + 1;
+      queue.push(node.right);
+    }
+  }
+
+  let keys = [];
+  for (let k of map.keys()) {
+    keys.push(k);
+  }
+  keys.sort((a, b) => a - b);
+
+  let result = [];
+  for (let key of keys) {
+    let temp = map.get(key);
+    result.push(temp);
+  }
+  return result;
+};
 /**
  * Class Solution {
 public:

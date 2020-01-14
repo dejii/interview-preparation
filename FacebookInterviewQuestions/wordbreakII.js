@@ -1,53 +1,27 @@
-var wordBreak = function(s, wordDict) {
-  let set = new Set();
-  for (let word of wordDict) {
-    set.add(word);
-  }
+// var wordBreak = function(s, wordDict) {
+//   var results = [];
 
-  let dp = [];
-  for (let i = 0; i <= s.length; i++) {
-    dp.push(false);
-  }
-  dp[0] = true;
-  // console.log(dp);
+//   var findCombos = function(current, pullFrom) {
+//     // console.log(pullFrom);
+//     // console.log(current.join(""));
+//     if (pullFrom.length === 0) {
+//       results.push(current.join(" "));
+//       return;
+//     }
 
-  for (let i = 1; i <= s.length; i++) {
-    for (var j = 0; j < i; j++) {
-      if (dp[j] && set.has(s.substring(j, i))) {
-        dp[i] = true;
-        break;
-      }
-    }
-  }
-
-  return dp[s.length];
-};
-
-function wb(s, set, words) {
-  let len = s.length;
-  if (len === 0) {
-    return;
-  }
-  for (let i = 1; i <= len; i++) {
-    if (set.has(s.substring(0, i)) && wb(s.substring(i), set)) {
-      words.push(s.substring(i));
-      console.log("her");
-      // return true;
-    }
-  }
-  // return false;
-}
-
-var wordBreak = function(s, wordDict) {
-  let set = new Set();
-  for (let word of wordDict) {
-    set.add(word);
-  }
-  let words = [];
-  wb(s, set, words);
-  console.log(words);
-};
-
+//     for (var i = 0; i < wordDict.length; i++) {
+//       console.log("-> ", wordDict[i]);
+//       if (pullFrom.indexOf(wordDict[i]) === 0) {
+//         // console.log(pullFrom, wordDict[i]);
+//         current.push(wordDict[i]);
+//         findCombos(current, pullFrom.slice(wordDict[i].length));
+//         current.pop();
+//       }
+//     }
+//   };
+//   findCombos([], s);
+//   return results;
+// };
 var wordBreak = function(s, wordDict) {
   let set = new Set();
   for (let word of wordDict) {
@@ -60,11 +34,13 @@ var wordBreak = function(s, wordDict) {
   for (let i = 1; i <= s.length; i++) {
     for (var j = 0; j < i; j++) {
       if (dp[j] && set.has(s.substring(j, i))) {
+        console.log(s.substring(j, i));
         dp[i] = true;
         break;
       }
     }
   }
+  console.log(dp.join(" "));
   if (!dp[s.length]) {
     return [];
   }
@@ -107,10 +83,5 @@ console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
 //     ]
 //   )
 // );
+// console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
 // console.log(wordBreak("whatisfacebook", ["what", "i", "is", "facebook"]));
-// console.log(wb("code", new Set(["leet", "cod"])));
-
-/**
- *
- * https://www.geeksforgeeks.org/word-break-problem-dp-32/
- */

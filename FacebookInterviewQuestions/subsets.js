@@ -14,8 +14,9 @@ function generateSubsets(index, nums, current, result) {
     current.pop();
   }
 }
-
-console.log(subsets([1, 2]));
+let arr = "whatisfacebook".split("");
+// console.log(subsets(arr).filter(x => x.join("") === "facebook"));
+console.log(subsets([1, 2, 3]));
 
 /**
  * Subsets : https://leetcode.com/problems/subsets/
