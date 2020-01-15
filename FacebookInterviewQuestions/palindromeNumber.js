@@ -13,3 +13,18 @@ var isPalindrome = function(x) {
 
   return x === rev;
 };
+
+/*
+class Solution {
+public:
+bool isPalindrome(int x) {
+    int i=x, n=0;
+    while(i>0)
+    {
+        n=i%10+n*10;
+        i/=10;
+    }
+    return n==x;
+}
+};
+*/
