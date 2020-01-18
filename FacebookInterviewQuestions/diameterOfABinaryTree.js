@@ -8,6 +8,7 @@
 /**
  * @param {TreeNode} root
  * @return {number}
+ *  O(n^2)
  */
 var height = function(root) {
   if (root === null) {

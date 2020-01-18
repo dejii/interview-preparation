@@ -65,6 +65,6 @@ var solveNQueens = function(n) {
   return result;
 };
 
-console.log(solveNQueens(4));
+console.log(solveNQueens(8));
 
 // O(n^2x n!)

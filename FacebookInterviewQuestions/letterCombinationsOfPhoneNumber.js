@@ -70,3 +70,8 @@ var letterCombinations = function(digits) {
   letterCombinationsRecursive(res, digits, "", 0, mapping);
   return res;
 };
+/**
+ * t -> n x 4^n  | creating n strings
+ *
+ * s -> n rec space + 4^n answerrs
+ */

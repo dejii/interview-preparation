@@ -112,3 +112,36 @@ bool isKPal(string str, int k)
     return (n - lps <= k); 
 } 
   */
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {boolean}
+ */
+var isValidPalindrome = function(s, k) {
+  let dp = [];
+  let t = s
+    .split("")
+    .reverse()
+    .join("");
+  for (let i = 0; i <= s.length; i++) {
+    let temp = new Array(s.length + 1).fill(0);
+    dp.push(temp);
+  }
+
+  for (let i = 0; i <= s.length; i++) {
+    for (let j = 0; j <= t.length; j++) {
+      if (i === 0 || j === 0) {
+        dp[i][j] = 0;
+      } else if (s[i - 1] === t[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+  }
+
+  // longest common substring
+  let lcs = dp[s.length][t.length];
+
+  return s.length - lcs <= k;
+};

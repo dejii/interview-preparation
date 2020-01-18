@@ -4,8 +4,8 @@
  * @return {boolean}
  */
 
-function dfs(board, i, j, count, word) {
-  if (count === word.length) {
+function dfs(board, i, j, index, word) {
+  if (index === word.length) {
     return true;
   }
   if (
@@ -13,7 +13,7 @@ function dfs(board, i, j, count, word) {
     i >= board.length ||
     j < 0 ||
     j >= board[i].length ||
-    board[i][j] !== word.charAt(count)
+    board[i][j] !== word.charAt(index)
   ) {
     return false;
   }
@@ -22,10 +22,10 @@ function dfs(board, i, j, count, word) {
   board[i][j] = "#";
 
   let found =
-    dfs(board, i + 1, j, count + 1, word) ||
-    dfs(board, i - 1, j, count + 1, word) ||
-    dfs(board, i, j + 1, count + 1, word) ||
-    dfs(board, i, j - 1, count + 1, word);
+    dfs(board, i + 1, j, index + 1, word) ||
+    dfs(board, i - 1, j, index + 1, word) ||
+    dfs(board, i, j + 1, index + 1, word) ||
+    dfs(board, i, j - 1, index + 1, word);
 
   board[i][j] = temp;
 
@@ -48,3 +48,10 @@ let board = [
   ["A", "D", "E", "E"]
 ];
 console.log(exist(board, "ABCCED"));
+
+/**
+ *
+ * Since no one is talking about the complexity. I think space is O(L) where L is the length of the word;
+ *  and time is O(M * N * 4^L) where M*N is the size of the board and we have 4^L for each cell because of
+ * the recursion. Of course this would be an upper bound. Not sure if it is good enough in an interview.
+ */
