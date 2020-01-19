@@ -69,28 +69,6 @@ var rangeSumBST = function(root, L, R) {
 
   return sum;
 };
-// var rangeSumBST = function(root, L, R) {
-//   let sum = 0;
-//   if (root === null) {
-//     return sum;
-//   }
-//   let queue = new Queue();
-//   queue.enqueue(root);
-//   while (!queue.isEmpty()) {
-//     let node = queue.dequeue();
-//     // console.log(node.val);
-//     if (node.val >= L && node.val <= R) {
-//       sum += node.val;
-//     }
-//     if (node.left !== null) {
-//       queue.enqueue(root.left);
-//     }
-//     if (node.right !== null) {
-//       queue.enqueue(root.right);
-//     }
-//   }
-//   return sum;
-// };
 
 /**
  *     public int rangeSumBST(TreeNode root, int L, int R) {

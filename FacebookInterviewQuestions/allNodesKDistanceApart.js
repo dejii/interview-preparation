@@ -79,15 +79,3 @@ node.right.left = new Node(0);
 node.right.right = new Node(8);
 
 console.log(distanceK(node, node.left, 2));
-
-/**
- *  private GNode cloneGraph(TreeNode node, GNode parent, TreeNode target) {
-        if (node == null) return null;
-        GNode gNode = new GNode(node);
-        if (node == target) targetGNode = gNode;
-        gNode.parent = parent;
-        gNode.left = cloneGraph(node.left, gNode, target);
-        gNode.right = cloneGraph(node.right, gNode, target);
-        return gNode;
-    }
- */

@@ -10,7 +10,7 @@ var flatten = function(root) {
     if (current.left !== null) {
       stack.push(current.left);
     }
-
+    // peek and set the current pointer to its
     if (stack.length > 0) {
       let idx = stack.length - 1;
       current.right = stack[idx];

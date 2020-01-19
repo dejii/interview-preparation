@@ -19,6 +19,8 @@ var copyList = function(head) {
 };
 /**
  * 
+ * THIS APPROACH PUTS THE CLONE IN FRONT OF THE NODE
+ * THEN DOES SOME MAGIC
 
 // This code passes all Leetcode test cases as of Oct. 3rd 2019
 class ConstantSpaceApproach {

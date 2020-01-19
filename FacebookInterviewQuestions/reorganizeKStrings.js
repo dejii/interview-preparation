@@ -111,9 +111,11 @@ class PriorityQueue {
 }
 
 /*
-Given a non-empty string s and an integer k, rearrange the string such that the same characters are at least distance k from each other.
+Given a non-empty string s and an integer k, rearrange the string such that the same
+ characters are at least distance k from each other.
 
-All input strings are given in lowercase letters. If it is not possible to rearrange the string, return an empty string "".
+All input strings are given in lowercase letters. If it is not possible to rearrange the string, 
+return an empty string "".
 
 Example 1:
 
@@ -172,17 +174,24 @@ console.log(rearrangeString("aaab", 3));
 // console.log(rearrangeString("aabbcc", 3));
 
 /*
-    It took me some time to understand why should we pick the char with maximum remaining count. The first thought was that it seems more "urgent". But that does not convince myself.
+    It took me some time to understand why should we pick the char with maximum remaining count.
+     The first thought was that it seems more "urgent". But that does not convince myself.
 
-For those who are familiar with EDF (earilest deadline first) algorithm in scheduling, this problem is actually (I think) a different statement or a variation of the original scheduling problem.
+For those who are familiar with EDF (earilest deadline first) algorithm in scheduling,
+ this problem is actually (I think) a different statement or a variation of the original scheduling problem.
 
-Before filling in the first position, think about this: what is the deadline for the first occurance of every character? e.g. "aaabbc" and k=2.
+Before filling in the first position, think about this: what is the deadline for the first
+ occurance of every character? e.g. "aaabbc" and k=2.
 
-In this case, deadline for "a" is index 1, that is, if we do not fill the first "a" at index 0 or index 1, we cannot finish the job. Deadline for b is 3 and deadline for c is 5. Thus we choose the one with most urgent deadline.
+In this case, deadline for "a" is index 1, that is, if we do not fill the first "a" at index 0 
+or index 1, we cannot finish the job. Deadline for b is 3 and deadline for c is 5. 
+Thus we choose the one with most urgent deadline.
 
-Therefore, the logic behind choosing maxiumum remaining count is that the char with larger remaining count has a more urgent deadline.
+Therefore, the logic behind choosing maxiumum remaining count is that the char with larger
+ remaining count has a more urgent deadline.
 
-The second "a" will not "appear" until 2 steps after where we put the first "a". It will come with a different deadline than when there are 3 remaining "a"s.
+The second "a" will not "appear" until 2 steps after where we put the first "a". It will come w
+ith a different deadline than when there are 3 remaining "a"s.
     Using the greedy approach
     Similar to the task scheduling where you need to ensure that you dont process two tasks
 
