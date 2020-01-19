@@ -122,6 +122,7 @@ var kClosest = function(points, K) {
     point.push(distance);
   }
 
+  // sort by distance in descending order
   let queue = new PriorityQueue((a, b) => {
     if (a[2] > b[2]) {
       return 1;
@@ -161,3 +162,5 @@ console.log(
     1
   )
 );
+//The advantage of this solution is it can deal with real-time(online) stream data. It does not have to know the size of the data previously.
+//The disadvatage of this solution is it is not the most efficient solution.

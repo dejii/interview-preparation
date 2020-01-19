@@ -3,12 +3,22 @@
  * @param {number} amount
  * @return {number}
  */
+
+/*
+    for each amount we have,
+    che
+ */
 var coinChange = function(coins, amount) {
   let dp = new Array(amount + 1).fill(amount + 1);
+  /*
+        The answer to making change with minimum coins for 0
+        will always be 0 coins no matter what the coins we are
+        given are*/
   dp[0] = 0;
 
   for (let i = 1; i <= amount; i++) {
     for (let j = 0; j < coins.length; j++) {
+      // If it is less than or equal to the sub problem amount
       if (coins[j] <= i) {
         dp[i] = Math.min(dp[i], dp[i - coins[j]]);
       }

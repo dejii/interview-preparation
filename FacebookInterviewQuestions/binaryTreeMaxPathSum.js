@@ -16,6 +16,14 @@ var maxPathSumUtil = function(node, result) {
 
   let leftSum = maxPathSumUtil(node.left, result);
   let rightSum = maxPathSumUtil(node.right, result);
+  /**
+ * 
+ * For each node there can be four ways that the max path goes through the node:
+1. Node only
+2. Max path through Left Child + Node
+3. Max path through Right Child + Node
+4. Max path through Left Child + Node + Max path through Right Child
+*/
 
   let maxSumAtNode = Math.max(Math.max(leftSum, rightSum) + node.val, node.val);
 

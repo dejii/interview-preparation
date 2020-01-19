@@ -2,7 +2,6 @@ class PriorityQueue {
   constructor(compareFn) {
     this.heap = [];
     if (compareFn) {
-      console.log("compareFn");
       this.compareFn = compareFn;
     } else {
       // ascending order by default

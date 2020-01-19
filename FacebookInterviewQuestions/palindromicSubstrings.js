@@ -23,3 +23,4 @@ var countSubstrings = function(s) {
 
   return count;
 };
+//Idea is start from each index and try to extend palindrome for both odd and even length.

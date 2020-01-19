@@ -11,6 +11,7 @@
  */
 function dfs(node, path, paths) {
   path += node.val;
+  // if leaf node
   if (node.left === null && node.right === null) {
     paths.push(path);
   }

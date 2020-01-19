@@ -10,10 +10,11 @@ function partitionEqualSubsets(nums) {
   return canPartition(nums, 0, 0, total, visited);
 }
 function canPartition(nums, index, currentSum, total, visited) {
-  let key = `${index}-${currentSum}`;
+  let key = `${index}-${currentSum}`; // optimization
   if (visited.has(key)) {
     return visited.get(key);
   }
+  // goal
   if (currentSum * 2 === total) {
     return true;
   }
@@ -25,7 +26,7 @@ function canPartition(nums, index, currentSum, total, visited) {
     canPartition(nums, index + 1, currentSum + nums[index], total, visited) ||
     canPartition(nums, index + 1, currentSum, total, visited);
 
-  visited.set(key, found);
+  visited.set(key, found); // optimization
 
   return found;
 }

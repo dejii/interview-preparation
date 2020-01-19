@@ -22,6 +22,7 @@ function knows(a, b) {
 function findTheCelebrity(n) {
   let celebrity = 0;
   for (let i = 1; i < n; i++) {
+    // find candidate
     if (knows(celebrity, i)) {
       celebrity = i;
     }
@@ -40,9 +41,11 @@ function findTheCelebrity(n) {
  * Logical Thinking
 It is inductive that we can find the candidate and check whether it is up to standard or not.
 How do we decide the candidate?
-We are sure that if A knows B, A cannot be the celebrity while B may be, i.e., B is the candidate. Since there is only one celebrity, one loop is enough to decide the candidate.
+We are sure that if A knows B, A cannot be the celebrity while B may be, i.e., 
+B is the candidate. Since there is only one celebrity, one loop is enough to decide the candidate.
 How do we check whether the candidate is up to standard?
-According to the definition of a celebrity, if !knows(i, candidate) || knows(candidate, i) exists, the candidate is not qualified.
+According to the definition of a celebrity, if !knows(i, candidate) || knows(candidate, i) exists, 
+the candidate is not qualified.
 
 Clear Java Code
 

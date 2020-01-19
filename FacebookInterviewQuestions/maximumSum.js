@@ -22,6 +22,18 @@
         return num;
     }
 }
+\
+Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. 
+Return the maximum valued number you could get.
+
+Example 1:
+Input: 2736
+Output: 7236
+Explanation: Swap the number 2 and the number 7.
+Example 2:
+Input: 9973
+Output: 9973
+Explanation: No swap.
  */
 
 function maximumSwap(num) {
@@ -49,9 +61,11 @@ console.log(maximumSwap(995));
 
 /**
  * """
-    Implement the next permutation, which rearranges numbers into the numerically next greater permutation of numbers.
+    Implement the next permutation, which rearranges numbers into the numerically next greater 
+    permutation of numbers.
 
-    If such arrangement is not possible, it must be rearranged as the lowest possible order ie, sorted in an ascending order.
+    If such arrangement is not possible, it must be rearranged as the lowest possible order ie,
+     sorted in an ascending order.
 
     The replacement must be in-place, do not allocate extra memory.
 

@@ -12,8 +12,9 @@ function dfs(grid, i, j) {
   ) {
     return 0;
   }
+  // set as visited
   grid[i][j] = 0;
-  let count = 1;
+  let count = 1; // initialize count
   count += dfs(grid, i - 1, j);
   count += dfs(grid, i + 1, j);
   count += dfs(grid, i, j - 1);
@@ -33,6 +34,12 @@ var maxAreaOfIsland = function(grid) {
   }
   return max;
 };
+/**
+ * it's N^2, where N is the number of all the grids
+To be more accurate, it's MN, where M is the number of all the '1's
+
+
+ */
 
 let grid = [
   [1, 1, 0, 0, 0],

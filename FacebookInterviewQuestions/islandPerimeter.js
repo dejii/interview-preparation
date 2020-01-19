@@ -10,9 +10,12 @@ function dfs(grid, i, j) {
     j >= grid[0].length ||
     grid[i][j] === 0
   ) {
+    // count what it is surrounded by, either out of boulds or adjacent is 0
     return 1;
   }
+  // if visited
   if (grid[i][j] === -1) return 0;
+  // mark visited
   grid[i][j] = -1;
   let count = 0;
   count += dfs(grid, i + 1, j);

@@ -15,12 +15,15 @@ function isPalindrome(s, i, j) {
 }
 
 function dfs(str, pos, decompInProgress, result) {
+  // goal
   if (pos === str.length) {
     result.push(decompInProgress.slice());
     return;
   } else {
+    // choices
     for (let i = pos; i < str.length; i++) {
       console.log(str.substring(pos, i + 1));
+      // constriant
       if (isPalindrome(str, pos, i)) {
         decompInProgress.push(str.substring(pos, i + 1));
         dfs(str, i + 1, decompInProgress, result);

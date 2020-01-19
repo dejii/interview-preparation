@@ -28,6 +28,7 @@ function generateCombinations(index, nums, current, sum, result, target) {
     result.push(current.slice());
   }
   for (let i = index; i < nums.length; i++) {
+    // simulate taking the number at idx and not taking it, we back track when we pop
     current.push(nums[i]);
     // console.log(current);
     generateCombinations(

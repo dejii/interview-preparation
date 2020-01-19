@@ -117,7 +117,7 @@ class PriorityQueue {
 }
 var findKthLargest = function(nums, k) {
   let i = 0;
-  queue = new PriorityQueue((a, b) => b - a);
+  queue = new PriorityQueue((a, b) => b - a); // min heap
   for (; i < k; i++) {
     queue.add(nums[i]);
   }

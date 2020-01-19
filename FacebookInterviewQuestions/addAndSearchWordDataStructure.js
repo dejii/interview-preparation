@@ -34,10 +34,12 @@ function searchUtil(word, node, idx) {
     return node.word;
   }
 
+  // recursive search, if not ch, search with next ch
   if (word.charAt(idx) !== ".") {
     // console.log(node)
     return searchUtil(word, node.chars.get(word.charAt(idx)), idx + 1);
   } else {
+    // search all links
     for (let ch of node.chars.keys()) {
       if (searchUtil(word, node.chars.get(ch), idx + 1)) {
         return true;

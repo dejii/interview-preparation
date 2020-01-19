@@ -4,11 +4,13 @@
  */
 var pivotIndex = function(nums) {
   let sum = 0;
+  // get total sum
   for (let i = 0; i < nums.length; i++) {
     sum += nums[i];
   }
   let leftSum = 0;
   for (let i = 0; i < nums.length; i++) {
+    // track left sum and see if its equal to the other end
     if (leftSum === sum - leftSum - nums[i]) {
       return i;
     }

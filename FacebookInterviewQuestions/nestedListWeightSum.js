@@ -14,6 +14,8 @@ var depthSum = function(nestedList) {
   return dfs(nestedList, 1);
 };
 
+//O(n)
+
 /**
  * var depthSum = function(nestedList) {
     

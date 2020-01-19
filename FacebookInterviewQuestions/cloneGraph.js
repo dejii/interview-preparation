@@ -10,22 +10,29 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
+  if (node === null) {
+    return null;
+  }
+
   let cloneMap = new Map();
   let queue = [];
   queue.push(node);
   cloneMap.set(node, new Node(node.val));
   while (queue.length > 0) {
     let current = queue.shift();
-
+    // point the current to its neighbours, and create duplicate nodes for them if they dont exist
     for (let neigh of current.neighbors) {
       if (!cloneMap.has(neigh)) {
         cloneMap.set(neigh, new Node(neigh.val));
         queue.push(neigh);
       }
 
+      // set the links
       cloneMap.get(current).neighbors.push(cloneMap.get(neigh));
     }
   }
+
+  // return clone head
   return cloneMap.get(node);
 };
 
@@ -129,3 +136,14 @@ public Node cloneGraph(Node start) {
     return newNode;
   }
   */
+/**
+ *  private GNode cloneGraph(TreeNode node, GNode parent, TreeNode target) {
+        if (node == null) return null;
+        GNode gNode = new GNode(node);
+        if (node == target) targetGNode = gNode;
+        gNode.parent = parent;
+        gNode.left = cloneGraph(node.left, gNode, target);
+        gNode.right = cloneGraph(node.right, gNode, target);
+        return gNode;
+    }
+ */

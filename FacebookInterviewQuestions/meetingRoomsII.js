@@ -1,3 +1,7 @@
+/**
+ * @param {number[][]} intervals
+ * @return {number}
+ */
 class PriorityQueue {
   constructor(compareFn) {
     this.heap = [];
@@ -100,36 +104,31 @@ class PriorityQueue {
   }
 }
 
-function minMeetingRooms(meetings) {
-  if (meetings.length === 0) {
+var minMeetingRooms = function(intervals) {
+  intervals.sort((a, b) => a[0] - b[0]);
+  if (intervals.length === 0) {
     return 0;
   }
-  queue = new PriorityQueue((a, b) => {
-    if (a[1] < b[1]) {
-      return 1;
-    } else if (b[1] > a[1]) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-  queue.add(meetings[0]);
+  queue = new PriorityQueue((a, b) => b[1] - a[1]);
+  queue.add(intervals[0]);
 
-  for (let i = 1; i < meetings.length; i++) {
+  for (let i = 1; i < intervals.length; i++) {
     let [currentMeetingStart, currentMeetingEnd] = queue.remove();
-    let [nextMeetingStart, nextMeetingEnd] = meetings[i];
+    let [nextMeetingStart, nextMeetingEnd] = intervals[i];
+    // next meeting can use the same room ? update
     if (nextMeetingStart >= currentMeetingEnd) {
       currentMeetingEnd = nextMeetingEnd;
     } else {
-      queue.add(meetings[i]);
+      queue.add(intervals[i]);
     }
 
+    // at the meeting back
     queue.add([currentMeetingStart, currentMeetingEnd]);
     // console.log(queue.heap);
   }
 
   return queue.size();
-}
+};
 
 console.log(
   minMeetingRooms([

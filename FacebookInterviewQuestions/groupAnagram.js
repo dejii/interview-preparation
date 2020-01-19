@@ -25,31 +25,31 @@ var isAnagram = function(s, t) {
   }
   return true;
 };
-var groupAnagrams2 = function(strs) {
-  let result = [];
-  if (strs.length === 0) {
-    return result;
-  }
-  let seen = new Set();
+// var groupAnagrams2 = function(strs) {
+//   let result = [];
+//   if (strs.length === 0) {
+//     return result;
+//   }
+//   let seen = new Set();
 
-  for (let i = 0; i < strs.length; i++) {
-    if (!seen.has(strs[i])) {
-      let arr = [];
-      arr.push(strs[i]);
-      seen.add(strs[i]);
-      for (let j = i + 1; j < strs.length; j++) {
-        if (!seen.has(strs[j])) {
-          if (isAnagram(strs[i], strs[j])) {
-            seen.add(strs[j]);
-            arr.push(strs[j]);
-          }
-        }
-      }
-      result.push(arr);
-    }
-  }
-  return result;
-};
+//   for (let i = 0; i < strs.length; i++) {
+//     if (!seen.has(strs[i])) {
+//       let arr = [];
+//       arr.push(strs[i]);
+//       seen.add(strs[i]);
+//       for (let j = i + 1; j < strs.length; j++) {
+//         if (!seen.has(strs[j])) {
+//           if (isAnagram(strs[i], strs[j])) {
+//             seen.add(strs[j]);
+//             arr.push(strs[j]);
+//           }
+//         }
+//       }
+//       result.push(arr);
+//     }
+//   }
+//   return result;
+// };
 
 var toCharArrayString = function(str) {
   let arr = [];

@@ -4,6 +4,7 @@ function partitionKEqualSubsets(nums, k) {
     total += num;
   }
 
+  // buckets
   if (k <= 0 || k > nums.length || total % k !== 0) {
     return false;
   }

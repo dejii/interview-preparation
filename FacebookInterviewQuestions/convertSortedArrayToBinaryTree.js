@@ -14,6 +14,7 @@ function convert(nums, left, right) {
   if (left > right) {
     return null;
   }
+  // we use mid and recursively call left n right subtrees
   let mid = left + Math.floor((right - left) / 2);
   let current = new TreeNode(nums[mid]);
   current.left = convert(nums, left, mid - 1);

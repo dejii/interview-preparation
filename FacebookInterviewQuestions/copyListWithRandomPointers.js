@@ -2,12 +2,14 @@ var copyList = function(head) {
   if (head === null) return null;
   let map = new Map();
   let temp = head;
+  // create clone for each node
   while (temp !== null) {
     let clone = new Node(temp.val);
     map.set(temp, clone);
     temp = temp.next;
   }
   temp = head;
+  // wire up the pointers
   while (temp !== null) {
     map.get(temp).next = map.get(temp.next) || null;
     map.get(temp).random = map.get(temp.random) || null;

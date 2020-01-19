@@ -42,6 +42,8 @@ var longestPalindrome = function(s) {
     if (p1.length > longest.length) {
       longest = p1;
     }
+    // p1 assume odd length, try to extend Palindrome as possible
+    // p2 //assume even length.
 
     let p2 = longestPalindromeExpandingFromCentre(s, i, i + 1);
     if (p2.length > longest.length) {

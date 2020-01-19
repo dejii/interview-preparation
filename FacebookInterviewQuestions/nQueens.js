@@ -38,15 +38,18 @@ function isValid(board, row, col) {
 }
 
 function dfs(board, rowIdx, result) {
+  // goal
   if (rowIdx === board.length) {
     result.push(generate(board));
     return;
   }
+  // choices
   for (let col = 0; col < board.length; col++) {
     board[rowIdx][col] = "Q";
     if (isValid(board, rowIdx, col)) {
       dfs(board, rowIdx + 1, result);
     }
+    // backtrack
     board[rowIdx][col] = ".";
   }
 }

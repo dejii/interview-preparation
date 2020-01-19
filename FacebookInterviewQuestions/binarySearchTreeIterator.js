@@ -34,10 +34,13 @@ class Stack {
   }
 }
 var BSTIterator = function(root) {
+  //LIFO
   this.stack = new Stack();
+  // get leftmost node initially
   this.pushAll(root);
 };
 
+// gets the farthest left node -> inorder [left, root, null]
 BSTIterator.prototype.pushAll = function(node) {
   while (node !== null) {
     this.stack.append(node);
@@ -50,7 +53,9 @@ BSTIterator.prototype.pushAll = function(node) {
  * @return {number}
  */
 BSTIterator.prototype.next = function() {
+  // lifo
   let tempNode = this.stack.pop();
+  // try getting the min in right subtree
   this.pushAll(tempNode.right);
   return tempNode.val;
 };

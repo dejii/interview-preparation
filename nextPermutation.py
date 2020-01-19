@@ -16,36 +16,38 @@
     20, 50, 113 → 20, 113, 50
 """
 
+
 def nextPermutation(A):
     i = len(A) - 1
     while i > 0 and A[i - 1] >= A[i]:
-        i-=1
+        i -= 1
     # i is now at the head of the suffix
-    
+
     # have we reached the beginning of the array? ie the array is arranged
     # in decreasing order, we return the sorted array by simply reversing it
-    if i <=0:
+    if i <= 0:
         return reversed(A)
-        
+
     # Let array[i - 1] be the pivot
     # Find rightmost element that exceeds the pivot
     j = len(A) - 1
-    while (A[j] <= A[i - 1]):
-        j-=1
+    while A[j] <= A[i - 1]:
+        j -= 1
     # Now the value array[j] will become the new pivot
     # Assertion: j >= i
-    
+
     # swap the pivot with j
-    A[i-1], A[j] = A[j], A[i-1]
-    
+    A[i - 1], A[j] = A[j], A[i - 1]
+
     # reverse the suffix in place
     j = len(A) - 1
-    while(i < j):
+    while i < j:
         A[i], A[j] = A[j], A[i]
-        i+=1
-        j-=1
-        
+        i += 1
+        j -= 1
+
     return A
+
 
 a = [20, 50, 113]
 print(list(nextPermutation(a)))

@@ -55,3 +55,9 @@ var numIslands = function(grid) {
   }
   return count;
 };
+/**
+ * it's N^2, where N is the number of all the grids
+To be more accurate, it's MN, where M is the number of all the '1's
+
+
+ */
