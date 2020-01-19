@@ -1,5 +1,6 @@
 /**
- * Given a list of tasks (which have a name and an execution time) and a list of dependencies between those tasks (graph),
+ * Given a list of tasks (which have a name and an execution time) and a list
+ *  of dependencies between those tasks (graph),
  *  find the total time it takes for a certain task to finish.
 For example:
 Tasks: A B C D E
