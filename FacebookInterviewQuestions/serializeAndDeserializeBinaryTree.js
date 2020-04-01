@@ -72,3 +72,41 @@ node.right.right = new Node(5);
 
 // console.log(serialize(node));
 console.log(deserialize("1,2,null,null,3,4,null,null,5,null,null"));
+
+/*
+public String serialize(TreeNode root) {
+    Queue<TreeNode> q = new LinkedList<>();
+    StringBuilder sb = new StringBuilder();
+    q.add(root);
+    while (!q.isEmpty()) {
+        TreeNode node = q.remove();
+        if (node == null) {
+            sb.append("null");
+        } else {
+            sb.append(node.val);
+            q.add(node.left);
+            q.add(node.right);
+        }
+        sb.append(' ');
+    }
+    return sb.toString();
+}
+public TreeNode deserialize(String data) {
+    StringTokenizer st = new StringTokenizer(data);
+    Queue<TreeNode> q = new LinkedList<>();
+    String token = st.nextToken();
+    TreeNode tree = token.equals("null") ? null : new TreeNode(Integer.parseInt(token));
+    q.add(tree);
+    while (st.hasMoreTokens()) {
+        TreeNode root = q.remove();
+        if (root == null) continue;
+        token = st.nextToken();
+        root.left = token.equals("null") ? null : new TreeNode(Integer.parseInt(token));
+        q.add(root.left);
+        token = st.nextToken();
+        root.right = token.equals("null") ? null : new TreeNode(Integer.parseInt(token));
+        q.add(root.right);
+    }
+    return tree;
+}
+*/
