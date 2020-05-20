@@ -1,4 +1,4 @@
-var fib = function(N) {
+var fib = function (N) {
   if (N <= 1) {
     return N;
   }
@@ -13,7 +13,7 @@ var fib = function(N) {
   return b;
 };
 
-var fibCache = function(N) {
+var fibCache = function (N) {
   // bottom up dp
   let dp = new Array(N + 1).fill(0);
   dp[0] = 0;
@@ -25,3 +25,22 @@ var fibCache = function(N) {
   return dp[N];
 };
 console.log(fibCache(4));
+
+
+/**
+ * @param {number} N
+ * @return {number}
+ */
+function fibHelper(n, cache) {
+  if (n < 2) return n;
+
+  if (cache[n]) return cache[n];
+
+  let res = fibHelper(n - 1, cache) + fibHelper(n - 2, cache);
+  cache[n] = res;
+  return res;
+}
+var fib = function (N) {
+  let cache = new Array(N).fill(null);
+  return fibHelper(N, cache);
+};

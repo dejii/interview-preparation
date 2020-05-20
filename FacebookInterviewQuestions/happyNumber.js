@@ -19,7 +19,7 @@ Explanation:
 62 + 82 = 100
 12 + 02 + 02 = 1
  */
-var isHappy = function(n) {
+var isHappy = function (n) {
   let set = new Set();
   while (n !== 1) {
     let sum = 0;
@@ -41,4 +41,5 @@ var isHappy = function(n) {
 
   return true;
 };
-console.log(isHappy(19));
+// console.log(isHappy(19));
+console.log(isHappy(7));

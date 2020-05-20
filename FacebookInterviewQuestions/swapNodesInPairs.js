@@ -1,4 +1,4 @@
-var swapPairs = function(head) {
+var swapPairs = function (head) {
   let dummy = new ListNode(0);
   dummy.next = head;
   let current = dummy;
@@ -12,3 +12,36 @@ var swapPairs = function(head) {
   }
   return dummy.next;
 };
+// 0 - 1 - 2 - 3
+// f-1, s-2
+//1-3
+//0-2
+//2-1
+// 2
+class ListNode {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+function helper(head) {
+  if (head.next === null || head.next.next === null) {
+    return;
+  }
+  let first = head.next;
+  let second = head.next.next;
+  first.next = second.next;
+  head.next = second;
+  head.next.next = first;
+  head = head.next.next;
+  helper(head)
+}
+
+var swapPairsRecursively = function (head) {
+  let dummy = new ListNode(0);
+  dummy.next = head;
+  let current = dummy;
+  helper(current);
+  return dummy.next;
+}
