@@ -23,7 +23,7 @@ var checkInclusion = function(s1, s2) {
   let m = s2.length;
   if (m < n) return false;
   let permFreq = new Array(26).fill(0);
-  console.log(permFreq);
+  // console.log(permFreq);
 
   for (let i = 0; i < s1.length; i++) {
     let idx = s1.charCodeAt(i) - "a".charCodeAt(0);
