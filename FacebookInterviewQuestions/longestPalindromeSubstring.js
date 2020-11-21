@@ -22,7 +22,7 @@
     O(1)
  
  */
-var longestPalindromeExpandingFromCentre = function(s, c1, c2) {
+var longestPalindromeExpandingFromCentre = function (s, c1, c2) {
   let l = c1; // center 1
   let r = c2; // center 2
 
@@ -34,7 +34,7 @@ var longestPalindromeExpandingFromCentre = function(s, c1, c2) {
   return s.slice(l + 1, r);
 };
 
-var longestPalindrome = function(s) {
+var longestPalindrome = function (s) {
   // edge case when s has a length of one
   let longest = s.slice(0, 1);
   for (let i = 0; i < s.length - 1; i++) {
@@ -54,4 +54,5 @@ var longestPalindrome = function(s) {
   return longest;
 };
 
-console.log(longestPalindrome("babad"));
+// console.log(longestPalindrome("babad"));
+console.log(longestPalindrome("xabcbayabbaz"));

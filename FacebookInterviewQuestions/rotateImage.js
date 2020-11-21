@@ -20,21 +20,23 @@
     21 11 01
     22 12 02
 */
-var rotate = function(matrix) {
+var rotate = function (matrix) {
   const n = matrix.length;
   for (let i = 0; i < n; i++) {
     for (let j = i; j < n; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[j][i];
-      matrix[j][i] = temp;
+      console.log(i, j);
+      // let temp = matrix[i][j];
+      // matrix[i][j] = matrix[j][i];
+      // matrix[j][i] = temp;
     }
   }
 
   for (let i = 0; i < n; i++) {
-    matrix[i].reverse();
+    // matrix[i].reverse();
   }
 };
 
+rotate([1, 1, 1]);
 /**
  * /*
  * clockwise rotate

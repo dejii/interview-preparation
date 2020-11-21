@@ -2,7 +2,7 @@
  * @param {number} numRows
  * @return {number[][]}
  */
-var generate = function(numRows) {
+var generate = function (numRows) {
   if (numRows < 1) {
     return [];
   }
@@ -11,6 +11,7 @@ var generate = function(numRows) {
   let row = [];
 
   for (let i = 0; i < numRows; i++) {
+    console.log("here ", row);
     row.unshift(1);
     for (let i = 1; i < row.length - 1; i++) {
       row[i] = row[i] + row[i + 1];
@@ -19,3 +20,5 @@ var generate = function(numRows) {
   }
   return result;
 };
+
+console.log(generate(3));

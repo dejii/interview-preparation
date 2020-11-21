@@ -27,7 +27,7 @@ Follow up, how will you do it changing the grid?
 
 */
 
-var clear = function(grid, i, j, n, m) {
+var clear = function (grid, i, j, n, m) {
   if (i < 0 || i >= n || j < 0 || j >= m || grid[i][j] === "0") {
     return;
   }
@@ -37,7 +37,7 @@ var clear = function(grid, i, j, n, m) {
   clear(grid, i, j + 1, n, m);
   clear(grid, i, j - 1, n, m);
 };
-var numIslands = function(grid) {
+var numIslands = function (grid) {
   if (grid === null || grid.length === 0) {
     return 0;
   }
@@ -55,6 +55,14 @@ var numIslands = function(grid) {
   }
   return count;
 };
+
+c = [
+  ["1", "1", "0", "0"],
+  ["1", "1", "1", "0"],
+  ["0", "1", "1", "0"],
+  ["0", "0", "0", "1"],
+];
+console.log(numIslands(c));
 /**
  * it's N^2, where N is the number of all the grids
 To be more accurate, it's MN, where M is the number of all the '1's

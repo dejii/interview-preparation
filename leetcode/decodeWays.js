@@ -8,6 +8,7 @@ var numDecodings = function(s) {
   let i = 1;
   for (const letter of letters) {
     mapping[i++] = letter;
+    
   }
 
   for (let i = 0; i < s.length - 1; i++) {

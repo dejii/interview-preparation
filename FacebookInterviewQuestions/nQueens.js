@@ -53,7 +53,7 @@ function dfs(board, rowIdx, result) {
     board[rowIdx][col] = ".";
   }
 }
-var solveNQueens = function(n) {
+var solveNQueens = function (n) {
   let result = [];
   let board = [];
   for (let i = 0; i < n; i++) {
@@ -68,6 +68,6 @@ var solveNQueens = function(n) {
   return result;
 };
 
-console.log(solveNQueens(8));
+console.log(solveNQueens(5));
 
 // O(n^2x n!)
