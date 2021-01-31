@@ -19,3 +19,4 @@ function hammingDistance(A) {
 }
 var a = [2,4,6,7]
 console.log(hammingDistance(a))
+

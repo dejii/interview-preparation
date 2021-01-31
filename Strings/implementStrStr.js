@@ -31,7 +31,7 @@ function strStr(A, B) {
         }
         
     
-    }
+}
     return -1
 }
 
